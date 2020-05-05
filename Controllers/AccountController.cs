@@ -153,7 +153,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/Register
-        [CustomAuthorize(Roles = "Admin, Manager")]
         public ActionResult Register()
         {
             List<SelectListItem> list = new List<SelectListItem>();
@@ -166,7 +165,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [CustomAuthorize(Roles = "Admin, Manager")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {

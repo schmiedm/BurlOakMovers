@@ -36,7 +36,6 @@ namespace BurlOakMovers.Controllers
 
 
         // GET: Role
-        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
             List<RoleViewModel> list = new List<RoleViewModel>();
@@ -44,27 +43,23 @@ namespace BurlOakMovers.Controllers
                 list.Add(new RoleViewModel(role));
             return View(list);
         }
-        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        [CustomAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Create(RoleViewModel modal)
         {
             var role = new ApplicationRole() { Name = modal.Name };
             await RoleManager.CreateAsync(role);
             return RedirectToAction("Index");
         }
-        [CustomAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(string id)
         {
             var role = await RoleManager.FindByIdAsync(id);
             return View(new RoleViewModel(role));
         }
         [HttpPost]
-        [CustomAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(RoleViewModel model)
         {
             var role = new ApplicationRole() { Id = model.Id, Name = model.Name };
