@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BurlOakMovers
+namespace BurlOakMovers.Models
 {
     using System;
     using System.Collections.Generic;

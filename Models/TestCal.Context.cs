@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BurlOakMovers
+namespace BurlOakMovers.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities3 : DbContext
     {
-        public Entities2()
-            : base("name=Entities2")
+        public Entities3()
+            : base("name=Entities3")
         {
         }
     
