@@ -46,9 +46,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.OData.Edm, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.OData.Edm.7.7.1\lib\net45\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -168,9 +173,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\TestEventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,8 +194,27 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\TestCal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestCal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestCal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestCal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestCal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestCal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestEvent.cs">
+      <DependentUpon>TestCal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddEventModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -199,8 +225,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\TestCal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestCal.edmx</DependentUpon>
+      <LastGenOutput>TestCal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TestCal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestCal.edmx</DependentUpon>
+      <LastGenOutput>TestCal.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\TestCal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TestCal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TestCal.edmx.diagram">
+      <DependentUpon>TestCal.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\BurlOakMovers - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -252,6 +295,12 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Details.cshtml" />
     <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\TestEvents\Create.cshtml" />
+    <Content Include="Views\TestEvents\Delete.cshtml" />
+    <Content Include="Views\TestEvents\Details.cshtml" />
+    <Content Include="Views\TestEvents\Edit.cshtml" />
+    <Content Include="Views\TestEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +325,9 @@
     <EmbeddedResource Include="Migrations\202005041535577_role.resx">
       <DependentUpon>202005041535577_role.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
