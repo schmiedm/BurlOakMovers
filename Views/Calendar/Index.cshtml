@@ -253,15 +253,14 @@
                 var formData = {
                     id: $('#eventId').val(),
                     Subject: $('#txtSubject').val().trim(),
+                    //Start: startDate,
                     Start: moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate(),
-                    //Start: moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate(),
                     End: $('#chFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
                     Description: $('#txtDescription').val(),
                     ThemeColor: $('#ddThemeColor').val(),
                     IsFullDay: $('#chkFullDay').is(':checked')
-
                 }
-
+                //This is an update
                 console.log(formData.Start);
                 SaveEvent(formData);
                 $('#saveModal').modal().hide();
