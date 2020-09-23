@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202005041535577_role.Designer.cs">
       <DependentUpon>202005041535577_role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009231503592_Calendar.cs" />
+    <Compile Include="Migrations\202009231503592_Calendar.Designer.cs">
+      <DependentUpon>202009231503592_Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -245,6 +249,7 @@
       <DependentUpon>TestCal.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BurlOakMovers - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BurlOakMovers20200923103337 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005041535577_role.resx">
       <DependentUpon>202005041535577_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231503592_Calendar.resx">
+      <DependentUpon>202009231503592_Calendar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
