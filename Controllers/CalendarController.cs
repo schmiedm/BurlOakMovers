@@ -20,9 +20,9 @@ namespace BurlOakMovers.Controllers
 
         public JsonResult GetEvents()
         {
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities dc = new BurlOakMovers20200923103337_dbEntities())
             {
-                var events = dc.TestEvents.ToList();
+                var events = dc.Calendars.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
@@ -32,11 +32,11 @@ namespace BurlOakMovers.Controllers
             Debug.Print("PLESE DONT BE 000000000                 " + e.StartDate.ToString());
             Debug.Print("Save Event ");
             var status = false;
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities dc = new BurlOakMovers20200923103337_dbEntities())
             {
                 if (e.EventId > 0)
                 {
-                    TestEvent v = dc.TestEvents.Where(a => a.id == e.EventId).FirstOrDefault();
+                    Calendar v = dc.Calendars.Where(a => a.id == e.EventId).FirstOrDefault();
                     if (v != null)
                     {
                         v.IsFullDay = e.FullDay;
@@ -50,7 +50,7 @@ namespace BurlOakMovers.Controllers
                 }
                 else
                 {
-                    TestEvent objEvent = new TestEvent()
+                    Calendar objEvent = new Calendar()
                     {
                         Subject = e.Subject,
                         Description = e.Description,
@@ -60,7 +60,7 @@ namespace BurlOakMovers.Controllers
                     };
                     Debug.Print(e.StartDate.ToString());
                     Debug.Print(objEvent.Start.ToString());
-                    dc.TestEvents.Add(objEvent);
+                    dc.Calendars.Add(objEvent);
                     Debug.Print("New Event");
 
                 }
@@ -107,12 +107,12 @@ namespace BurlOakMovers.Controllers
         {
             var status = false;
 
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities dc = new BurlOakMovers20200923103337_dbEntities())
             {
-                var v = dc.TestEvents.Where(a => a.id == id).FirstOrDefault();
+                var v = dc.Calendars.Where(a => a.id == id).FirstOrDefault();
                 if (v != null)
                 {
-                    dc.TestEvents.Remove(v);
+                    dc.Calendars.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }

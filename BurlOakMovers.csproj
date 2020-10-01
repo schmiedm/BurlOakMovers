@@ -191,6 +191,39 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendar.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendar.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Calendar.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
@@ -210,7 +243,7 @@
       <DependentUpon>TestCal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TestEvent.cs">
-      <DependentUpon>TestCal.tt</DependentUpon>
+      <DependentUpon>Calendar.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -225,6 +258,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Calendar.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Calendar.edmx</DependentUpon>
+      <LastGenOutput>Calendar.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Calendar.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Calendar.edmx</DependentUpon>
+      <LastGenOutput>Calendar1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\TestCal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TestCal.edmx</DependentUpon>
@@ -243,6 +286,13 @@
     </EntityDeploy>
     <Content Include="Models\TestCal.edmx.diagram">
       <DependentUpon>TestCal.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Calendar.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Calendar.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Calendar.edmx.diagram">
+      <DependentUpon>Calendar.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BurlOakMovers - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

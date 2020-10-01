@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Calendar</h2>
 
 <div id="calendar"></div>
 
@@ -244,7 +244,7 @@
                 else {
                     var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
                     var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
-                    if (startDate < endDate) {
+                    if (startDate > endDate) {
                         alert('Start date cannot be after end date');
                         return;
                     }
