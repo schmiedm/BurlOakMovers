@@ -196,16 +196,16 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.Context.cs">
       <AutoGen>True</AutoGen>
@@ -213,7 +213,7 @@
       <DependentUpon>Calendar.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -226,10 +226,28 @@
       <DependentUpon>Calendar.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\TestCal.Context.cs">
       <AutoGen>True</AutoGen>
@@ -247,7 +265,7 @@
       <DependentUpon>TestCal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TestEvent.cs">
-      <DependentUpon>Calendar.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -271,6 +289,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Calendar.edmx</DependentUpon>
       <LastGenOutput>Calendar1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>MyModel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\TestCal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -297,6 +325,13 @@
     </EntityDeploy>
     <Content Include="Models\Calendar.edmx.diagram">
       <DependentUpon>Calendar.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\MyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MyModel.edmx.diagram">
+      <DependentUpon>MyModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BurlOakMovers - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\BurlOakMovers20200923103337 - Web Deploy.pubxml" />
@@ -350,12 +385,12 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Details.cshtml" />
     <Content Include="Views\Role\Delete.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\TestEvents\Create.cshtml" />
     <Content Include="Views\TestEvents\Delete.cshtml" />
     <Content Include="Views\TestEvents\Details.cshtml" />
     <Content Include="Views\TestEvents\Edit.cshtml" />
     <Content Include="Views\TestEvents\Index.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
