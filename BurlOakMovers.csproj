@@ -174,6 +174,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\customersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -193,19 +194,23 @@
     <Compile Include="Migrations\202009231503592_Calendar.Designer.cs">
       <DependentUpon>202009231503592_Calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011101724249_customer1.cs" />
+    <Compile Include="Migrations\202011101724249_customer1.Designer.cs">
+      <DependentUpon>202011101724249_customer1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.Context.cs">
       <AutoGen>True</AutoGen>
@@ -213,7 +218,7 @@
       <DependentUpon>Calendar.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -225,11 +230,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Calendar.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer.cs">
+      <DependentUpon>Customer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customer.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customer.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -265,7 +288,10 @@
       <DependentUpon>TestCal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TestEvent.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>Customer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkOrder.cs">
+      <DependentUpon>Customer.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -289,6 +315,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Calendar.edmx</DependentUpon>
       <LastGenOutput>Calendar1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Customer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customer.edmx</DependentUpon>
+      <LastGenOutput>Customer.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Customer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customer.edmx</DependentUpon>
+      <LastGenOutput>Customer1.cs</LastGenOutput>
     </Content>
     <Content Include="Models\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -332,6 +368,13 @@
     </EntityDeploy>
     <Content Include="Models\MyModel.edmx.diagram">
       <DependentUpon>MyModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Customer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Customer.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Customer.edmx.diagram">
+      <DependentUpon>Customer.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BurlOakMovers - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\BurlOakMovers20200923103337 - Web Deploy.pubxml" />
@@ -391,6 +434,11 @@
     <Content Include="Views\TestEvents\Edit.cshtml" />
     <Content Include="Views\TestEvents\Index.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\customers\Create.cshtml" />
+    <Content Include="Views\customers\Delete.cshtml" />
+    <Content Include="Views\customers\Details.cshtml" />
+    <Content Include="Views\customers\Edit.cshtml" />
+    <Content Include="Views\customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009231503592_Calendar.resx">
       <DependentUpon>202009231503592_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011101724249_customer1.resx">
+      <DependentUpon>202011101724249_customer1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

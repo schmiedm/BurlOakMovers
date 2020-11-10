@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BurlOakMovers20200923103337_dbModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Start" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="End" Type="datetime2" Precision="7" />
+          <Property Name="ThemeColor" Type="nvarchar(max)" />
+          <Property Name="IsFullDay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="custid" />
+          </Key>
+          <Property Name="custid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="custlname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="custaddress" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="custcity" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="custpostal" Type="char" MaxLength="7" Nullable="false" />
+          <Property Name="custemail" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="custphone" Type="char" MaxLength="13" />
+          <Property Name="custcellphone" Type="char" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsFullDay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestEvents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="ThemeColor" Type="nvarchar(max)" />
+          <Property Name="IsFullDay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workorder">
+          <Key>
+            <PropertyRef Name="workorderid" />
+          </Key>
+          <Property Name="workorderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custid" Type="int" />
+          <Property Name="numvans" Type="int" />
+          <Property Name="numworker" Type="int" />
+          <Property Name="numhours" Type="float" />
+          <Property Name="payrate" Type="float" />
+          <Property Name="furnishtotal" Type="float" />
+          <Property Name="washer" Type="int" Nullable="false" />
+          <Property Name="dryer" Type="int" Nullable="false" />
+          <Property Name="fridge" Type="int" Nullable="false" />
+          <Property Name="stove" Type="int" Nullable="false" />
+          <Property Name="dishwasher" Type="int" Nullable="false" />
+          <Property Name="mircowave" Type="int" Nullable="false" />
+          <Property Name="freezer" Type="int" Nullable="false" />
+          <Property Name="pianotype" Type="varchar" MaxLength="30" />
+          <Property Name="wadrobe" Type="varchar" MaxLength="20" />
+          <Property Name="mirrorcartons" Type="varchar" MaxLength="20" />
+          <Property Name="proposalother" Type="varchar" MaxLength="40" />
+          <Property Name="appliancetotal" Type="float" />
+          <Property Name="deductible" Type="bit" />
+          <Property Name="deductibleamount" Type="float" />
+          <Property Name="specialins" Type="varchar" MaxLength="500" />
+          <Property Name="labourhrs" Type="int" />
+          <Property Name="carton2" Type="int" />
+          <Property Name="carton4" Type="int" />
+          <Property Name="carton5" Type="int" />
+          <Property Name="smmirror" Type="int" />
+          <Property Name="lgmirror" Type="int" />
+          <Property Name="sglmatress" Type="int" />
+          <Property Name="dblmatress" Type="int" />
+          <Property Name="kingqeen" Type="int" />
+          <Property Name="wardrobes" Type="int" />
+          <Property Name="totalpackestimate" Type="int" />
+          <Property Name="shipper" Type="varchar" MaxLength="20" />
+          <Property Name="mover" Type="varchar" MaxLength="20" />
+          <Property Name="moverrep" Type="varchar" MaxLength="20" />
+          <Property Name="esttotal" Type="float" />
+          <Property Name="taxrate" Type="float" />
+          <Property Name="total" Type="float" />
+        </EntityType>
+        <Association Name="FK__workorder__custi__1BC821DD">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="workorder" Type="Self.workorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="custid" />
+            </Principal>
+            <Dependent Role="workorder">
+              <PropertyRef Name="custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BurlOakMovers20200923103337_dbModel2StoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestEvents" EntityType="Self.TestEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workorder" EntityType="Self.workorder" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__workorder__custi__1BC821DD" Association="Self.FK__workorder__custi__1BC821DD">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="workorder" EntitySet="workorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BurlOakMovers20200923103337_dbModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="End" Type="DateTime" Precision="7" />
+          <Property Name="ThemeColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="custid" />
+          </Key>
+          <Property Name="custid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="custlname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="custaddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="custcity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="custpostal" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="custemail" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="custphone" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="custcellphone" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="workorders" Relationship="Self.FK__workorder__custi__1BC821DD" FromRole="customer" ToRole="workorder" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestEvent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="ThemeColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workorder">
+          <Key>
+            <PropertyRef Name="workorderid" />
+          </Key>
+          <Property Name="workorderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custid" Type="Int32" />
+          <Property Name="numvans" Type="Int32" />
+          <Property Name="numworker" Type="Int32" />
+          <Property Name="numhours" Type="Double" />
+          <Property Name="payrate" Type="Double" />
+          <Property Name="furnishtotal" Type="Double" />
+          <Property Name="washer" Type="Int32" Nullable="false" />
+          <Property Name="dryer" Type="Int32" Nullable="false" />
+          <Property Name="fridge" Type="Int32" Nullable="false" />
+          <Property Name="stove" Type="Int32" Nullable="false" />
+          <Property Name="dishwasher" Type="Int32" Nullable="false" />
+          <Property Name="mircowave" Type="Int32" Nullable="false" />
+          <Property Name="freezer" Type="Int32" Nullable="false" />
+          <Property Name="pianotype" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="wadrobe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mirrorcartons" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="proposalother" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="appliancetotal" Type="Double" />
+          <Property Name="deductible" Type="Boolean" />
+          <Property Name="deductibleamount" Type="Double" />
+          <Property Name="specialins" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="labourhrs" Type="Int32" />
+          <Property Name="carton2" Type="Int32" />
+          <Property Name="carton4" Type="Int32" />
+          <Property Name="carton5" Type="Int32" />
+          <Property Name="smmirror" Type="Int32" />
+          <Property Name="lgmirror" Type="Int32" />
+          <Property Name="sglmatress" Type="Int32" />
+          <Property Name="dblmatress" Type="Int32" />
+          <Property Name="kingqeen" Type="Int32" />
+          <Property Name="wardrobes" Type="Int32" />
+          <Property Name="totalpackestimate" Type="Int32" />
+          <Property Name="shipper" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mover" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="moverrep" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="esttotal" Type="Double" />
+          <Property Name="taxrate" Type="Double" />
+          <Property Name="total" Type="Double" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__workorder__custi__1BC821DD" FromRole="workorder" ToRole="customer" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workorder__custi__1BC821DD">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="workorder" Type="Self.workorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="custid" />
+            </Principal>
+            <Dependent Role="workorder">
+              <PropertyRef Name="custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BurlOakMovers20200923103337_dbEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Calendars" EntityType="Self.Calendar" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="TestEvents" EntityType="Self.TestEvent" />
+          <EntitySet Name="workorders" EntityType="Self.workorder" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workorder__custi__1BC821DD" Association="Self.FK__workorder__custi__1BC821DD">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="workorder" EntitySet="workorders" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BurlOakMovers20200923103337_dbModel2StoreContainer" CdmEntityContainer="BurlOakMovers20200923103337_dbEntities2">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calendars">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.Calendar">
+              <MappingFragment StoreEntitySet="Calendar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="custid" ColumnName="custid" />
+                <ScalarProperty Name="custname" ColumnName="custname" />
+                <ScalarProperty Name="custlname" ColumnName="custlname" />
+                <ScalarProperty Name="custaddress" ColumnName="custaddress" />
+                <ScalarProperty Name="custcity" ColumnName="custcity" />
+                <ScalarProperty Name="custpostal" ColumnName="custpostal" />
+                <ScalarProperty Name="custemail" ColumnName="custemail" />
+                <ScalarProperty Name="custphone" ColumnName="custphone" />
+                <ScalarProperty Name="custcellphone" ColumnName="custcellphone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestEvents">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.TestEvent">
+              <MappingFragment StoreEntitySet="TestEvents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workorders">
+            <EntityTypeMapping TypeName="BurlOakMovers20200923103337_dbModel2.workorder">
+              <MappingFragment StoreEntitySet="workorder">
+                <ScalarProperty Name="workorderid" ColumnName="workorderid" />
+                <ScalarProperty Name="custid" ColumnName="custid" />
+                <ScalarProperty Name="numvans" ColumnName="numvans" />
+                <ScalarProperty Name="numworker" ColumnName="numworker" />
+                <ScalarProperty Name="numhours" ColumnName="numhours" />
+                <ScalarProperty Name="payrate" ColumnName="payrate" />
+                <ScalarProperty Name="furnishtotal" ColumnName="furnishtotal" />
+                <ScalarProperty Name="washer" ColumnName="washer" />
+                <ScalarProperty Name="dryer" ColumnName="dryer" />
+                <ScalarProperty Name="fridge" ColumnName="fridge" />
+                <ScalarProperty Name="stove" ColumnName="stove" />
+                <ScalarProperty Name="dishwasher" ColumnName="dishwasher" />
+                <ScalarProperty Name="mircowave" ColumnName="mircowave" />
+                <ScalarProperty Name="freezer" ColumnName="freezer" />
+                <ScalarProperty Name="pianotype" ColumnName="pianotype" />
+                <ScalarProperty Name="wadrobe" ColumnName="wadrobe" />
+                <ScalarProperty Name="mirrorcartons" ColumnName="mirrorcartons" />
+                <ScalarProperty Name="proposalother" ColumnName="proposalother" />
+                <ScalarProperty Name="appliancetotal" ColumnName="appliancetotal" />
+                <ScalarProperty Name="deductible" ColumnName="deductible" />
+                <ScalarProperty Name="deductibleamount" ColumnName="deductibleamount" />
+                <ScalarProperty Name="specialins" ColumnName="specialins" />
+                <ScalarProperty Name="labourhrs" ColumnName="labourhrs" />
+                <ScalarProperty Name="carton2" ColumnName="carton2" />
+                <ScalarProperty Name="carton4" ColumnName="carton4" />
+                <ScalarProperty Name="carton5" ColumnName="carton5" />
+                <ScalarProperty Name="smmirror" ColumnName="smmirror" />
+                <ScalarProperty Name="lgmirror" ColumnName="lgmirror" />
+                <ScalarProperty Name="sglmatress" ColumnName="sglmatress" />
+                <ScalarProperty Name="dblmatress" ColumnName="dblmatress" />
+                <ScalarProperty Name="kingqeen" ColumnName="kingqeen" />
+                <ScalarProperty Name="wardrobes" ColumnName="wardrobes" />
+                <ScalarProperty Name="totalpackestimate" ColumnName="totalpackestimate" />
+                <ScalarProperty Name="shipper" ColumnName="shipper" />
+                <ScalarProperty Name="mover" ColumnName="mover" />
+                <ScalarProperty Name="moverrep" ColumnName="moverrep" />
+                <ScalarProperty Name="esttotal" ColumnName="esttotal" />
+                <ScalarProperty Name="taxrate" ColumnName="taxrate" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="BurlOakMovers20200923103337_dbModel2.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

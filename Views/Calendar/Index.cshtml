@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Calendar</h2>
 <div id="calender"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -38,7 +38,7 @@
             </div>
             <div class="modal-body">
                 <form class = "form-horizontal">
-                    <input type="hidden" id="hdEvent" value="0" />
+                    <input type="hidden" id="hdEventID" value="0" />
                     <div class="form-group">
                         <label>Subject</label>
                         <input type="text" id="txtSubject" class="form-control" />
@@ -133,7 +133,7 @@
                     defaultDate: new Date(),
                     timeFormat: 'h(:mm)a',
                     header: {
-                        left: 'prev,next today',
+                        left: 'prevYear,prev,next,nextYear today',
                         center: 'title',
                         right: 'month,basicWeek,basicDay,agenda'
                     },

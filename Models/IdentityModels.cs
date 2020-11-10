@@ -38,6 +38,8 @@ namespace BurlOakMovers.Models
 
         public System.Data.Entity.DbSet<BurlOakMovers.Models.TestEvent> TestEvents { get; set; }
 
+        public System.Data.Entity.DbSet<BurlOakMovers.Models.customer> customers { get; set; }
+
         //public System.Data.Entity.DbSet<BurlOakMovers.Models.RoleViewModel> RoleViewModels { get; set; }
     }
 }

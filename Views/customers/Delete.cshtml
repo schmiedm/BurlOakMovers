@@ -1,0 +1,88 @@
+﻿@model BurlOakMovers.Models.customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.custname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custlname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custlname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custcity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custcity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custpostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custpostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custcellphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custcellphone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

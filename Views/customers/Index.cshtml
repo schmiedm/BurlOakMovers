@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BurlOakMovers.Models.customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.custname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custlname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custcity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custpostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custemail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custphone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custcellphone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.custname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custlname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custaddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custcity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custpostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custemail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custphone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custcellphone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.custid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.custid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.custid })
+        </td>
+    </tr>
+}
+
+</table>
