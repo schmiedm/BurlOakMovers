@@ -1,0 +1,255 @@
+﻿@model IEnumerable<BurlOakMovers.Models.workorder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.custname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numvans)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numworker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numhours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payrate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.furnishtotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.washer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dryer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fridge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dishwasher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mircowave)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.freezer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pianotype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wadrobe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mirrorcartons)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proposalother)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appliancetotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deductible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deductibleamount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specialins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.labourhrs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carton2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carton4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carton5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.smmirror)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lgmirror)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sglmatress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dblmatress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kingqeen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wardrobes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalpackestimate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.moverrep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.esttotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taxrate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.custname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numvans)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numworker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numhours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.payrate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.furnishtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.washer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dryer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fridge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dishwasher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mircowave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.freezer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pianotype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wadrobe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mirrorcartons)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proposalother)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appliancetotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deductible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deductibleamount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.labourhrs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carton2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carton4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carton5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.smmirror)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lgmirror)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sglmatress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dblmatress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kingqeen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wardrobes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalpackestimate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.moverrep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esttotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taxrate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.workorderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.workorderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.workorderid })
+        </td>
+    </tr>
+}
+
+</table>

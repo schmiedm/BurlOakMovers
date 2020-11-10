@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using BurlOakMovers.Models;
 
 namespace BurlOakMovers.Controllers
@@ -109,10 +110,21 @@ namespace BurlOakMovers.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            customer customer = db.customers.Find(id);
-            db.customers.Remove(customer);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+                //var v = db.workorders.Find(id);
+                var v = db.workorders.Where(a => a.custid == id).FirstOrDefault();
+                System.Diagnostics.Debug.WriteLine(v);
+                if (v != null)
+                {
+                    return View("~/Views/customers/DeleteError.cshtml");
+                }
+                else
+                {
+                    customer customer = db.customers.Find(id);
+                    db.customers.Remove(customer);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } 
         }
 
         protected override void Dispose(bool disposing)

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TestEventsController.cs" />
+    <Compile Include="Controllers\workordersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -439,6 +440,12 @@
     <Content Include="Views\customers\Details.cshtml" />
     <Content Include="Views\customers\Edit.cshtml" />
     <Content Include="Views\customers\Index.cshtml" />
+    <Content Include="Views\workorders\Create.cshtml" />
+    <Content Include="Views\workorders\Delete.cshtml" />
+    <Content Include="Views\workorders\Details.cshtml" />
+    <Content Include="Views\workorders\Edit.cshtml" />
+    <Content Include="Views\workorders\Index.cshtml" />
+    <Content Include="Views\customers\DeleteError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
