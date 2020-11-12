@@ -1,9 +1,7 @@
-﻿using BurlOakMovers.Models;
-using BurlOakMovers.ViewModels;
+﻿
+using BurlOakMovers.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,106 +18,62 @@ namespace BurlOakMovers.Controllers
 
         public JsonResult GetEvents()
         {
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                var events = dc.TestEvents.ToList();
+                var events = dc.Events.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         [HttpPost]
-        public JsonResult SaveEvent(AddEventModel e)
+        public JsonResult SaveEvent(Event e)
         {
-            Debug.Print("PLESE DONT BE 000000000                 " + e.StartDate.ToString());
-            Debug.Print("Save Event ");
             var status = false;
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                if (e.EventId > 0)
+                if (e.EventID > 0)
                 {
-                    TestEvent v = dc.TestEvents.Where(a => a.id == e.EventId).FirstOrDefault();
+                    var v = dc.Events.Where(a => a.EventID == e.EventID).FirstOrDefault();
+                    
+
                     if (v != null)
                     {
-                        v.IsFullDay = e.FullDay;
-                        v.Start = e.StartDate;
                         v.Subject = e.Subject;
+                        v.Start = e.Start;
+                        v.End = e.End;
                         v.Description = e.Description;
+                        v.IsFullDay = e.IsFullDay;
                         v.ThemeColor = e.ThemeColor;
-                        v.End = e.EndDate;
-                        Debug.Print("Update Event");
                     }
                 }
                 else
                 {
-                    TestEvent objEvent = new TestEvent()
-                    {
-                        Subject = e.Subject,
-                        Description = e.Description,
-                        Start = e.StartDate,
-                        End = e.EndDate,
-                        ThemeColor = e.ThemeColor
-                    };
-                    Debug.Print(e.StartDate.ToString());
-                    Debug.Print(objEvent.Start.ToString());
-                    dc.TestEvents.Add(objEvent);
-                    Debug.Print("New Event");
-
+                    dc.Events.Add(e);
                 }
 
-
-
-
-
-                    
-
-
-                try
-                {
-                    dc.SaveChanges();
-                    status = true;
-                }
-                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-                {
-                    Exception raise = dbEx;
-                    foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            string message = string.Format("{0}:{1}",
-                                validationErrors.Entry.Entity.ToString(),
-                                validationError.ErrorMessage);
-                            // raise a new exception nesting
-                            // the current instance as InnerException
-                            raise = new InvalidOperationException(message, raise);
-                        }
-                    }
-                    throw raise;
-                }
-
-
-
-
+                dc.SaveChanges();
+                status = true;
             }
-            return new JsonResult { Data = new { status = true }};
+
+            return new JsonResult { Data = new { status = status } };
         }
 
         [HttpPost]
-        public JsonResult DeleteEvent(int id)
+        public JsonResult DeleteEvent(int eventID)
         {
             var status = false;
-
-            using (Entities3 dc = new Entities3())
+            using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                var v = dc.TestEvents.Where(a => a.id == id).FirstOrDefault();
-                if (v != null)
+                var v = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
+                if (v !=null)
                 {
-                    dc.TestEvents.Remove(v);
+                    dc.Events.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }
             }
 
-                return new JsonResult { Data = new { status = true } };
+            return new JsonResult { Data = new { status = status } };
         }
-
     }
 }

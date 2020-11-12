@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BurlOakMovers.Models.workorder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Active Work Orders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.custname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numvans)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numworker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numhours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deductible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.moverrep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.custname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numvans)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numworker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numhours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deductible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.moverrep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.workorderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.workorderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.workorderid })
+        </td>
+    </tr>
+}
+
+</table>
