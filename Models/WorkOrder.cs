@@ -11,47 +11,85 @@ namespace BurlOakMovers.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class workorder
     {
         public int workorderid { get; set; }
         public Nullable<int> custid { get; set; }
+        [DisplayName("Number of van needed")]
         public Nullable<int> numvans { get; set; }
+        [DisplayName("Number of workers needed")]
         public Nullable<int> numworker { get; set; }
+        [DisplayName("Estimate of hours")]
         public Nullable<double> numhours { get; set; }
+        [DisplayName("Worker payrate")]
         public Nullable<double> payrate { get; set; }
+        [DisplayName("Total furnish cost")]
         public Nullable<double> furnishtotal { get; set; }
+        [DisplayName("Washer count")]
         public int washer { get; set; }
+        [DisplayName("Dryer count")]
         public int dryer { get; set; }
+        [DisplayName("Fridge count")]
         public int fridge { get; set; }
+        [DisplayName("Stove count")]
         public int stove { get; set; }
+        [DisplayName("Dishwasher count")]
         public int dishwasher { get; set; }
+        [DisplayName("Microwave count")]
         public int mircowave { get; set; }
+        [DisplayName("Freezer count")]
         public int freezer { get; set; }
+        [DisplayName("Piano type")]
         public string pianotype { get; set; }
+        [DisplayName("Wardrobe description")]
         public string wadrobe { get; set; }
+        [DisplayName("Mirror cartons description")]
         public string mirrorcartons { get; set; }
+        [DisplayName("Other")]
         public string proposalother { get; set; }
+        [DisplayName("Total appliance cost")]
         public Nullable<double> appliancetotal { get; set; }
+        [DisplayName("No deductible")]
         public Nullable<bool> deductible { get; set; }
+        [DisplayName("Deductible amount")]
         public Nullable<double> deductibleamount { get; set; }
+        [DisplayName("Special instructions")]
         public string specialins { get; set; }
+        [DisplayName("Labor hours")]
         public Nullable<int> labourhrs { get; set; }
+        [DisplayName("Number of 2cu.ft cartons")]
         public Nullable<int> carton2 { get; set; }
+        [DisplayName("Number of 4cu.ft cartons")]
         public Nullable<int> carton4 { get; set; }
+        [DisplayName("Number of 5cu.ft cartons")]
         public Nullable<int> carton5 { get; set; }
+        [DisplayName("Number of small mirrors")]
         public Nullable<int> smmirror { get; set; }
+        [DisplayName("Number of large mirrors")]
         public Nullable<int> lgmirror { get; set; }
+        [DisplayName("Number of single mattresses")]
         public Nullable<int> sglmatress { get; set; }
+        [DisplayName("Number of double mattresses")]
         public Nullable<int> dblmatress { get; set; }
+        [DisplayName("Number of king/queen mattresses")]
         public Nullable<int> kingqeen { get; set; }
+        [DisplayName("Number of wardrobes")]
         public Nullable<int> wardrobes { get; set; }
+        [DisplayName("Total packing estimate")]
         public Nullable<int> totalpackestimate { get; set; }
+        [DisplayName("Shipper name")]
         public string shipper { get; set; }
+        [DisplayName("Mover name")]
         public string mover { get; set; }
+        [DisplayName("BurlOak movers rep")]
         public string moverrep { get; set; }
+        [DisplayName("Estimate total")]
         public Nullable<double> esttotal { get; set; }
+        [DisplayName("HST (13%)")]
         public Nullable<double> taxrate { get; set; }
+        [DisplayName("Total")]
         public Nullable<double> total { get; set; }
     
         public virtual customer customer { get; set; }

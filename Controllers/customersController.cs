@@ -111,10 +111,10 @@ namespace BurlOakMovers.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
 
-                //var v = db.workorders.Find(id);
-                var v = db.workorders.Where(a => a.custid == id).FirstOrDefault();
-                System.Diagnostics.Debug.WriteLine(v);
-                if (v != null)
+                
+                var valid = db.workorders.Where(a => a.custid == id).FirstOrDefault();
+                System.Diagnostics.Debug.WriteLine(valid);
+                if (valid != null)
                 {
                     return View("~/Views/customers/DeleteError.cshtml");
                 }

@@ -11,6 +11,7 @@ namespace BurlOakMovers.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class customer
@@ -21,14 +22,23 @@ namespace BurlOakMovers.Models
             this.workorders = new HashSet<workorder>();
         }
         [Key]
+        [DisplayName("First Name")]
         public int custid { get; set; }
+        [DisplayName("First Name")]
         public string custname { get; set; }
+        [DisplayName("Last Name")]
         public string custlname { get; set; }
+        [DisplayName("Address")]
         public string custaddress { get; set; }
+        [DisplayName("City")]
         public string custcity { get; set; }
+        [DisplayName("Postal Code")]
         public string custpostal { get; set; }
+        [DisplayName("Email")]
         public string custemail { get; set; }
+        [DisplayName("Primary Number")]
         public string custphone { get; set; }
+        [DisplayName("Secondary Number")]
         public string custcellphone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
