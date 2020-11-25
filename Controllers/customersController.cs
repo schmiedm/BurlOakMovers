@@ -93,6 +93,11 @@ namespace BurlOakMovers.Controllers
         // GET: customers/Delete/5
         public ActionResult Delete(int? id)
         {
+            //need to change description look into
+            if (!(User.IsInRole("Admin")))
+            {
+                return new HttpNotFoundResult("Some description");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
