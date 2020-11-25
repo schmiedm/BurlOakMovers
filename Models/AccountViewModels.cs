@@ -73,6 +73,8 @@ namespace BurlOakMovers.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[!@#$%?=*&])(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$", ErrorMessage = "Password must contain one upper, one lower, one digit and one special character which includes any of !@#$%?=*&")]
+
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
@@ -94,6 +96,8 @@ namespace BurlOakMovers.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[!@#$%?=*&])(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$", ErrorMessage = "Password must contain one upper, one lower, one digit and one special character which includes any of !@#$%?=*&")]
+
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
