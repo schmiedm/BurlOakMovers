@@ -10,6 +10,7 @@ using BurlOakMovers.Models;
 
 namespace BurlOakMovers.Controllers
 {
+    [Authorize]
     public class workordersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -95,6 +96,7 @@ namespace BurlOakMovers.Controllers
         }
 
         // GET: workorders/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,6 +113,7 @@ namespace BurlOakMovers.Controllers
 
         // POST: workorders/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

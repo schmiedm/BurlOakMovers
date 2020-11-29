@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BurlOakMovers.Controllers
 {
+    [Authorize]
     public class CalendarController : Controller
     {
         // GET: Calendar
@@ -64,10 +65,10 @@ namespace BurlOakMovers.Controllers
             var status = false;
             using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                var v = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
-                if (v !=null)
+                var valid = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
+                if (valid !=null)
                 {
-                    dc.Events.Remove(v);
+                    dc.Events.Remove(valid);
                     dc.SaveChanges();
                     status = true;
                 }
