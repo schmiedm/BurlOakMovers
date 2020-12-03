@@ -23,18 +23,16 @@
                 
                 <ul class="nav navbar-nav">
                     <!-- <li>Html.ActionLink("Home", "Index", "Home")</li> -->
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Login", "Account")</li>
                     @if (User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Register A User", "Register", "Account")</li>
-                        <li>@Html.ActionLink("Role", "Index", "Role")</li>
                     }
                     @if (User.IsInRole("Admin") || User.IsInRole("Mover"))
                     {
                         <li>@Html.ActionLink("Calendar", "Index", "Calendar")</li>
-                        <li>@Html.ActionLink("Customer", "Index", "customers")</li>
-                        <li>@Html.ActionLink("Workorder", "Index", "workorders")</li>
+                        <li>@Html.ActionLink("Manage Customers", "Index", "customers")</li>
+                        <li>@Html.ActionLink("Manage Workorders", "Index", "workorders")</li>
                     }
                     </ul>
                     

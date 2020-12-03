@@ -153,7 +153,7 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             List<SelectListItem> list = new List<SelectListItem>();
@@ -166,7 +166,7 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -197,7 +197,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -210,7 +209,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -219,7 +217,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/ForgotPassword
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -246,7 +243,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -254,7 +250,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -263,7 +258,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -288,7 +282,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -297,7 +290,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -307,7 +299,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/SendCode
-        [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -323,7 +314,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/SendCode
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -342,7 +332,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -373,7 +362,6 @@ namespace BurlOakMovers.Controllers
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
@@ -420,7 +408,6 @@ namespace BurlOakMovers.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
             return View();

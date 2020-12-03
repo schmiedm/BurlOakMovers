@@ -2,7 +2,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<style>
+    #main {
+        text-indent:10px;
+    }
+</style>
 <h2>Calendar</h2>
 <div id="calender"></div>
 
@@ -29,6 +33,7 @@
     </div>
 </div>
 
+
 <div id="myModalSave" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -39,12 +44,12 @@
             <div class="modal-body">
                 <form class = "form-horizontal">
                     <input type="hidden" id="hdEventID" value="0" />
-                    <div class="form-group">
-                        <label>Subject</label>
+                    <div id="main" class="form-group">
+                        <label >Subject</label>
                         <input type="text" id="txtSubject" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Start</label>
+                        <label style="text-indent:10px;">Start</label>
                         <div class="input-group date" id="dtp1">
                             <input type="text" id="txtStart" class="form-control" />
                             <span class="input-group-addon">
@@ -57,8 +62,9 @@
                             <label><input type="checkbox" id="chkIsFullDay" checked="checked" /> Is Full Day Event</label>
                         </div>
                     </div>
+                    
                     <div class="form-group" id="divEndDate" style="display:none">
-                        <label>End</label>
+                        <label style="text-indent:10px;">End</label>
                         <div class="input-group date" id="dtp2">
                             <input type="text" id="txtEnd" class="form-control" />
                             <span class="input-group-addon">
@@ -66,11 +72,11 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div id="main" class="form-group">
                         <label>Description</label>
                         <textarea id="txtDescription" rows="3" class="form-control"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div id="main" class="form-group">
                         <label>Theme Color</label>
                         <select id="ddThemeColor" class="form-control">
                             <option value="">Default</option>

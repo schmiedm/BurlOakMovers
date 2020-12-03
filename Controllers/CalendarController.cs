@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BurlOakMovers.Controllers
 {
+    [Authorize]
     public class CalendarController : Controller
     {
         // GET: Calendar
@@ -26,29 +27,29 @@ namespace BurlOakMovers.Controllers
         }
 
         [HttpPost]
-        public JsonResult SaveEvent(Event e)
+        public JsonResult SaveEvent(Event events)
         {
             var status = false;
             using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                if (e.EventID > 0)
+                if (events.EventID > 0)
                 {
-                    var v = dc.Events.Where(a => a.EventID == e.EventID).FirstOrDefault();
+                    var valid = dc.Events.Where(a => a.EventID == events.EventID).FirstOrDefault();
                     
 
-                    if (v != null)
+                    if (valid != null)
                     {
-                        v.Subject = e.Subject;
-                        v.Start = e.Start;
-                        v.End = e.End;
-                        v.Description = e.Description;
-                        v.IsFullDay = e.IsFullDay;
-                        v.ThemeColor = e.ThemeColor;
+                        valid.Subject = events.Subject;
+                        valid.Start = events.Start;
+                        valid.End = events.End;
+                        valid.Description = events.Description;
+                        valid.IsFullDay = events.IsFullDay;
+                        valid.ThemeColor = events.ThemeColor;
                     }
                 }
                 else
                 {
-                    dc.Events.Add(e);
+                    dc.Events.Add(events);
                 }
 
                 dc.SaveChanges();
@@ -64,10 +65,10 @@ namespace BurlOakMovers.Controllers
             var status = false;
             using (BurlOakMovers20200923103337_dbEntities1 dc = new BurlOakMovers20200923103337_dbEntities1())
             {
-                var v = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
-                if (v !=null)
+                var valid = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
+                if (valid !=null)
                 {
-                    dc.Events.Remove(v);
+                    dc.Events.Remove(valid);
                     dc.SaveChanges();
                     status = true;
                 }

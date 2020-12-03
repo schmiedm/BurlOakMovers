@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace BurlOakMovers.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private ApplicationRoleManager _roleManager;
