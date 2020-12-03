@@ -65,10 +65,13 @@
             @Html.DisplayFor(modelItem => item.total)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.workorderid }) |
-            @Html.ActionLink("Details", "Details", new { id=item.workorderid }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.workorderid })
-        </td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.workorderid }) |
+            @Html.ActionLink("Details", "Details", new { id = item.workorderid }) |
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.workorderid })
+            }
+            </td>
     </tr>
 }
 
